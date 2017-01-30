@@ -1,0 +1,46 @@
+div.macro {
+    padding: 3px;
+    border: 1px solid red;
+}
+
+div.meso {
+    padding: 3px;
+    border: 1px solid blue;
+}
+
+div.micro {
+    padding: 3px;
+    border: 1px solid black;
+    background: repeating-linear-gradient(
+        -45deg,
+        #999,
+        #ccc 1px,
+        #ccc 5px,
+        #999 6px
+    );
+}
+
+div.set {
+    display: block;
+    border: 1px none black;
+    border-top-style: dotted;
+
+}
+
+#deadlift {
+    background: rgb(200, 255, 200);
+}
+
+#squat {
+    background: rgb(255, 200, 200);
+}
+
+body {
+    font-family: Abel;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    margin: 0px;
+}
