@@ -1,12 +1,12 @@
 <?php
     require_once('db.php');
     function setup() {
-        // setup_user();
+        setup_user();
         // setup_exercise();
         // setup_cycle();
         // setup_set();
         // setup_macro();
-        setup_meso();
+        // setup_meso();
         // setup_micro();
     }
     function setup_macro() {

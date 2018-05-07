@@ -9,6 +9,9 @@
         <script src="js/list.js"></script>
         <button type="button" onclick="test()">Try it</button>
         <div class="test"></div>
+        <form>
+            <input type="text">
+        </form>
 
     </body>
 </html>
