@@ -41,12 +41,13 @@
             $sql = "
                 CREATE TABLE meso_cycle (
                     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                    cycle_name VARCHAR(20),
                     cycle_id INT(6) UNSIGNED
                 );
-                INSERT INTO `meso_cycle` (cycle_id) VALUES
-                (1),
-                (1),
-                (1);
+                INSERT INTO `meso_cycle` (cycle_id, cycle_name) VALUES
+                (1, 'meso_cycle'),
+                (1, 'meso_cycle'),
+                (1, 'meso_cycle');
             ";
 
             $conn->exec($sql);
