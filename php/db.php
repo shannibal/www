@@ -2,12 +2,12 @@
 
 define("HOST", "localhost");
 define("USER", "root");
-define("PASSWORD", "mysql");
+define("PASSWORD", "");
 define("SALT", "Y.NjG}V{9W_|Br&8JGm!4JRQ@3_~,8q1?*%S4br7bQNlDo;Zet0h%pNgj?;_4;O3");
 
 
 function construct_pdo() {
-    return new PDO("mysql:host=".HOST.";dbname=test", USER, PASSWORD);
+    return new PDO("mysql:host=".HOST.";dbname=main", USER, PASSWORD);
 }
 
 function create_user($username, $password) {

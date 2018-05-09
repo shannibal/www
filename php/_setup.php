@@ -1,13 +1,13 @@
 <?php
     require_once('db.php');
     function setup() {
-        setup_user();
-        // setup_exercise();
+        //setup_user();
+        //setup_exercise();
         // setup_cycle();
         // setup_set();
-        // setup_macro();
-        // setup_meso();
-        // setup_micro();
+        setup_macro();
+        //setup_meso();
+        //setup_micro();
     }
     function setup_macro() {
         try {
@@ -16,12 +16,13 @@
 
             $sql = "
                 CREATE TABLE macro_cycle (
-                    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY
+                    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    cycle_name VARCHAR(20)
                 );
-                INSERT INTO `macro_cycle` (id) VALUES
-                (NULL),
-                (NULL),
-                (NULL);
+                INSERT INTO `macro_cycle` (cycle_name) VALUES
+                ('Month 1'),
+                ('Month 2'),
+                ('Month 3');
             ";
 
             $conn->exec($sql);
@@ -45,9 +46,9 @@
                     cycle_id INT(6) UNSIGNED
                 );
                 INSERT INTO `meso_cycle` (cycle_id, cycle_name) VALUES
-                (1, 'meso_cycle'),
-                (1, 'meso_cycle'),
-                (1, 'meso_cycle');
+                (1, 'Week 1'),
+                (1, 'Week 2'),
+                (1, 'Week 3');
             ";
 
             $conn->exec($sql);
@@ -67,12 +68,13 @@
             $sql = "
                 CREATE TABLE micro_cycle (
                     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                    cycle_name VARCHAR(20),
                     cycle_id INT(6) UNSIGNED
                 );
-                INSERT INTO `micro_cycle` (cycle_id) VALUES
-                (1),
-                (1),
-                (1);
+                INSERT INTO `micro_cycle` (cycle_id, cycle_name) VALUES
+                (1, 'Monday'),
+                (1, 'Wednesday'),
+                (1, 'Friday');
             ";
 
             $conn->exec($sql);
@@ -116,8 +118,13 @@
             $sql = "
                 CREATE TABLE exercise (
                     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-                    name VARCHAR(30) NOT NULL
-                )
+                    name VARCHAR(30) NOT NULL,
+                    cycle_id INT(6) UNSIGNED
+                );
+                INSERT INTO `exercise` (name, cycle_id) VALUES
+                ('squat', 1),
+                ('bench', 1),
+                ('deadlift', 1);
             ";
 
             $conn->exec($sql);
