@@ -5,10 +5,84 @@
         //setup_exercise();
         // setup_cycle();
         // setup_set();
-        setup_macro();
+        _setup();
         //setup_meso();
         //setup_micro();
     }
+
+    function _setup() {
+        try {
+            $conn = construct_pdo();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $sql = "
+                DROP TABLE `exercise`;
+                DROP TABLE `micro_cycle`;
+                DROP TABLE `meso_cycle`;
+                DROP TABLE `macro_cycle`;
+
+                CREATE TABLE `exercise` (
+                    `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
+                    `parent` INT unsigned NOT NULL ,
+                    `name`   VARCHAR(45) NOT NULL ,
+
+                PRIMARY KEY (`id`)
+                );
+
+                INSERT INTO `exercise` (name, parent) VALUES
+                ('squat', 1),
+                ('bench', 1),
+                ('deadlift', 1);
+
+                CREATE TABLE `micro_cycle` (
+                    `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
+                    `parent` INT unsigned NOT NULL ,
+                    `name`   VARCHAR(45) NOT NULL ,
+
+                PRIMARY KEY (`id`)
+                );
+
+                INSERT INTO `micro_cycle` (parent, name) VALUES
+                (1, 'Monday'),
+                (1, 'Wednesday'),
+                (1, 'Friday');
+
+                CREATE TABLE `meso_cycle` (
+                    `id` INT unsigned NOT NULL AUTO_INCREMENT,
+                    `parent` INT unsigned NOT NULL ,
+                    `name`   VARCHAR(45) NOT NULL ,
+
+                PRIMARY KEY (`id`)
+                );
+
+                INSERT INTO `meso_cycle` (parent, name) VALUES
+                (1, 'Week 1'),
+                (1, 'Week 2'),
+                (1, 'Week 3');
+
+                CREATE TABLE `macro_cycle` (
+                    `id`   INT unsigned NOT NULL AUTO_INCREMENT ,
+                    `name` VARCHAR(45) NOT NULL ,
+
+                PRIMARY KEY (`id`)
+                );
+
+                INSERT INTO `macro_cycle` (name) VALUES
+                ('Month 1'),
+                ('Month 2'),
+                ('Month 3');
+            ";
+
+            $conn->exec($sql);
+            }
+        catch(PDOException $e)
+            {
+                echo $sql . "<br>" . $e->getMessage() . "<br>";
+            }
+
+        $conn = null;
+    }
+
     function setup_macro() {
         try {
             $conn = construct_pdo();
