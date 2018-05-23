@@ -21,23 +21,29 @@ div.micro {
     width: 290px;
 }
 
+/*
 div.exercise {
+    float: left;
     position: absolute;
-}
-
-div.exercise_set {
+    
     margin: 1px;
     border-color: red;
     width: 280px;
 }
 
+div.exercise_set {
+
+}
+
 div.set {
+    display: block;
+    
     margin: 1px;
     background: rgb(255, 200, 200, 0.5);
     text-align: right;
     width: 282px;
 }
-
+*/
 #squat {
     background: rgb(255, 200, 200);
 }
