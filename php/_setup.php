@@ -71,6 +71,21 @@
                 ('Month 1'),
                 ('Month 2'),
                 ('Month 3');
+
+                CREATE TABLE `set` (
+                    `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
+                    `parent` INT unsigned NOT NULL ,
+                    `repetition` INT unsigned NOT NULL ,
+                    `percent`   INT unsigned NOT NULL ,
+                    `value`   INT unsigned NOT NULL ,
+
+                PRIMARY KEY (`id`)
+                );
+
+                INSERT INTO `set` (parent, repetition, percent, value) VALUES
+                (1, 7, 70, 100),
+                (1, 5, 75, 110),
+                (1, 3, 80, 125);
             ";
 
             $conn->exec($sql);
