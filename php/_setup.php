@@ -20,6 +20,7 @@
                 DROP TABLE `micro_cycle`;
                 DROP TABLE `meso_cycle`;
                 DROP TABLE `macro_cycle`;
+                DROP TABLE `set`;
 
                 CREATE TABLE `exercise` (
                     `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
