@@ -1,4 +1,4 @@
-div {
+div.somethign {
     margin: 1px;
     padding: 1px 0px 0px 0px;
     border: transparent 0px solid;
@@ -48,7 +48,7 @@ div.set {
     background: rgb(255, 200, 200);
 }
 
-body {
+body.somethign {
     font-family: Abel;
     font-size: 20px;
     font-style: normal;

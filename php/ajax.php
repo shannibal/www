@@ -1,5 +1,6 @@
 <?php
     require_once('db.php');
+    /*
     $array = array(
         "macro" => query("
             SELECT macro_cycle.id as id, macro_cycle.name as name
@@ -22,7 +23,19 @@
             FROM `set`
         ")
     );
-        
-    echo json_encode($array);
+    */
+    if ($_GET['func'] == 'macro') { 
+        $array = query("
+            SELECT macro_cycle.id as id, macro_cycle.name as name
+            FROM macro_cycle
+        ");
+        echo json_encode($array);
+    } elseif ($_GET['func'] == 'meso') {
+        $array = query("
+            SELECT meso_cycle.id as id, meso_cycle.name as name, meso_cycle.parent as parent
+            FROM meso_cycle
+        ");
+        echo json_encode($array);
+    };
 
 ?>
