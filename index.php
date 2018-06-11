@@ -18,5 +18,7 @@
       <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <a class="waves-effect waves-light btn start">Start</a>
       <a class="waves-effect waves-light btn stop">Stop</a>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        </canvas>
     </body>
 </html>
