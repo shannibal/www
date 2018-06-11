@@ -1,4 +1,18 @@
+var timerVariable;
+
 $(document).ready( function() {
+    $('.sidenav').sidenav();
+    $('.btn.start').click( function() {
+        var start = new Date;
+        timerVariable = setInterval(function() {
+            $('.determinate').css({width: `${(new Date - start) / 1000}%`});
+            console.log("hmm");
+        }, 1000);
+    });
+    $('.btn.stop').click( function() {
+        window.clearInterval(timerVariable);
+        $('.determinate').css({width: "0%"});
+    });
     $.ajax({
         type: "get", dataType: "json",
         cache: false, async: true,
@@ -9,7 +23,7 @@ $(document).ready( function() {
                 $(".collapsible").append(`
                     <li>
                         <div class="collapsible-header"><i class="material-icons">filter_drama</i>${value.name}</div>
-                        <div class="collapsible-body" id="macro${key}"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-body" id="macro${key}"></div>
                     </li>
                 `);
             });
@@ -22,7 +36,6 @@ $(document).ready( function() {
             test();
         }
     });
-    
 });
 
 function test() {
