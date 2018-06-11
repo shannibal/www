@@ -6,7 +6,6 @@ $(document).ready( function() {
         var start = new Date;
         timerVariable = setInterval(function() {
             $('.determinate').css({width: `${(new Date - start) / 1000}%`});
-            console.log("hmm");
         }, 1000);
     });
     $('.btn.stop').click( function() {
