@@ -17,7 +17,7 @@
 
             $stmt = $conn->prepare($sql); 
             $stmt->execute();
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         catch(PDOException $e) {
                 echo $sql . "<br>" . $e->getMessage() . "<br>";
