@@ -25,15 +25,16 @@
                 CREATE TABLE `exercise` (
                     `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
                     `parent` INT unsigned NOT NULL ,
+                    `pr` INT unsigned NOT NULL ,
                     `name`   VARCHAR(45) NOT NULL ,
 
                 PRIMARY KEY (`id`)
                 );
 
-                INSERT INTO `exercise` (name, parent) VALUES
-                ('squat', 1),
-                ('bench', 1),
-                ('deadlift', 1);
+                INSERT INTO `exercise` (name, parent, pr) VALUES
+                ('squat', 1, 195),
+                ('bench', 1, 140),
+                ('deadlift', 1, 175);
 
                 CREATE TABLE `micro_cycle` (
                     `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
@@ -76,6 +77,7 @@
                 CREATE TABLE `set` (
                     `id`     INT unsigned NOT NULL AUTO_INCREMENT ,
                     `parent` INT unsigned NOT NULL ,
+                    `exercise` INT unsigned NOT NULL ,
                     `repetition` INT unsigned NOT NULL ,
                     `percent`   INT unsigned NOT NULL ,
                     `value`   INT unsigned NOT NULL ,
@@ -83,10 +85,25 @@
                 PRIMARY KEY (`id`)
                 );
 
-                INSERT INTO `set` (parent, repetition, percent, value) VALUES
-                (1, 7, 70, 100),
-                (1, 5, 75, 110),
-                (1, 3, 80, 125);
+                INSERT INTO `set` (parent, exercise, repetition, percent, value) VALUES
+                (1, 1, 7, 70, 1),
+                (1, 1, 5, 75, 2),
+                (1, 1, 3, 80, 1),
+                (1, 2, 7, 70, 2),
+                (1, 2, 5, 75, 2),
+                (1, 2, 3, 80, 1),
+                (1, 3, 7, 70, 3),
+                (1, 3, 5, 75, 2),
+                (1, 3, 3, 80, 1),
+                (2, 1, 7, 70, 1),
+                (2, 1, 5, 75, 2),
+                (2, 1, 3, 80, 1),
+                (2, 2, 7, 70, 2),
+                (2, 2, 5, 75, 2),
+                (2, 2, 3, 80, 1),
+                (2, 3, 7, 70, 3),
+                (2, 3, 5, 75, 2),
+                (2, 3, 3, 80, 1);
             ";
 
             $conn->exec($sql);
