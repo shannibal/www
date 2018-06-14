@@ -12,12 +12,14 @@
         
     </head>
     <body>
+        <ul id="slide-out" class="sidenav">
+        </ul>
+        <nav>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </nav>
         <div class="progress">
             <div class="determinate" style="width: 0%"></div>
         </div>
-        <ul id="slide-out" class="sidenav">
-        </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <a class="waves-effect waves-light btn start">Start</a>
         <a class="waves-effect waves-light btn stop">Stop</a>
         <div class="exercises"></div>
