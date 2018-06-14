@@ -1,4 +1,10 @@
+$.getScript("/js/base_object.js", function() {
+   $.data(document.body, "test", new Test());
+});
+
 $(document).ready( function() {
+    $('.sidenav').sidenav();
+
     createExercises();
 
     $('.btn.stop').click( function() {
@@ -36,12 +42,10 @@ function createExercises() {
                     
                     console.log("add", value.exercise_name);
                     $(`#${value.exercise_name}.exercise`).append(`
-                        <div class="row">
-                            <div class="col s3">${value.set_id}</div>
-                            <div class="col s3">&nbsp;</div>
-                            <div class="col s3">${value.set_value} x ${value.set_repetition}</div>
-                            <div class="col s3">${((value.set_percent/100) * value.exercise_pr).toFixed(0)} kg</div>
-                        </div>
+                        <div class="col s3">${value.set_id}</div>
+                        <div class="col s3">&nbsp;</div>
+                        <div class="col s3">${value.set_value} x ${value.set_repetition}</div>
+                        <div class="col s3">${((value.set_percent/100) * value.exercise_pr).toFixed(0)} kg</div>
                     `);
                     
                 }
