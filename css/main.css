@@ -1,72 +1,31 @@
 div.row {
-    margin: 1px;
+    margin: 2px;
     background: rgba(255, 255, 255, 0.5);
 }
 
-div[class*="exercise_"]{
-    margin: 3px 0px 0px 3px;
-    background: #78909c;
+div.exercise {
+    margin: 3px 0px 0px 0px;
+    background: darkgrey;
 }
 
-div.bench {
+div.exercise_top {
+    background: darkgrey;
+}
+
+div#bench.exercise_top {
     background: #4caf50;
 }
 
-div.squat {
+div#squat.exercise_top {
     background: #f44336;
 }
 
-div.deadlift {
+div#deadlift.exercise_top {
     background: #2196f3;
 }
 
-div.exercise {
-    left: 100;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-}
-
-div.macro {
-    border-color: red;
-    width: 298px;
-}
-
-div.meso {
-    border-color: blue;
-    width: 294px;
-}
-
-div.micro {
-    border-color: green;
-    width: 290px;
-}
-
-/*
-div.exercise {
-    float: left;
-    position: absolute;
-    
-    margin: 1px;
-    border-color: red;
-    width: 280px;
-}
-
-div.exercise_set {
-
-}
-
 div.set {
-    display: block;
-    
-    margin: 1px;
-    background: rgb(255, 200, 200, 0.5);
-    text-align: right;
-    width: 282px;
-}
-*/
-#squat {
-    background: rgb(255, 200, 200);
+    background: lightgrey;
 }
 
 body {
