@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-        <script src="js/main.js"></script>
+        <script data-main="js/main.js" src="js/require.js"></script>
         
     </head>
     <body>

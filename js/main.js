@@ -1,5 +1,18 @@
+requirejs.config({
+    baseUrl: 'js',
+    paths: {
+        core: 'js/core',
+        item: 'js/item'
+    }
+});
+
 $.getScript("/js/base_object.js", function() {
     console.log(gym.get_exercises());
+   // $.data(document.body, "test", new Test());
+});
+
+$.getScript("/js/core.js", function() {
+    console.log(new core.Item());
    // $.data(document.body, "test", new Test());
 });
 
@@ -16,7 +29,6 @@ $(document).ready( function() {
                     var exercise = new gym.Exercise(value);
                 }
                 var set = new gym.Set(value);
-                console.log(set.toString())
                 // console.log(set, set.exercise);
             });
         },
@@ -43,7 +55,6 @@ function createExercises() {
         // var elem = $(".exercises").append(this.toString());
         var elem = $(this.toString()).appendTo(".exercises");
         this.elem = elem;
-        console.log(">", elem);
     });
 
     $.each(gym.get_sets(), function() {
@@ -52,7 +63,15 @@ function createExercises() {
     });
 
     $.each(gym.get_exercises(), function() {
-        this.elem.append('<div class="col s12 exercise_new"><a class="btn">Add</a><div/>');
+        var exercise = this;
+        var elem = $('<a class="btn-small">Add Set</a>').appendTo(this.elem);
+
+        elem.click(function(){
+            var set = exercise.add_set();
+            exercise.elem.append(set.toString());
+            this.remove();
+            var elem = $('<a class="btn-small">Add Set</a>').appendTo(exercise.elem);
+        });
     });
 
 }
